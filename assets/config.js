@@ -3,9 +3,11 @@
 window.LAW_CONFIG = {
   /**
    * 同步接口地址。
-   *   留空            → 同源 POST /api/update（本地 server.py 提供）
+   *   留空                    → 同源 POST /api/update（本地 server.py 提供）
    *   部署在 Cloudflare Pages → 填 Worker 地址，如
-   *                     "https://law-sync.你的子域.workers.dev/api/update"
+   *                             "https://law-sync.xxx.workers.dev/api/update"
+   *   其中 law-sync 是 Worker 名字（wrangler.toml 的 name），
+   *   xxx 是你 Cloudflare 账号的 workers.dev 子域（不是 GitHub 用户名）。
    */
   syncEndpoint: "",
 

@@ -181,7 +181,8 @@ GitHub Pages 上没有后端，按钮默认会提示「未配置同步接口」�
 2. 把 `assets/config.js` 改成：
 
 ```js
-syncEndpoint: "https://law-sync.你的子域.workers.dev/api/update",
+// xxx = 你 Cloudflare 账号的 workers.dev 子域（部署 Worker 时打印出来的那个），不是 GitHub 用户名
+syncEndpoint: "https://law-sync.xxx.workers.dev/api/update",
 asyncSync: true,
 ```
 
@@ -245,10 +246,27 @@ wrangler secret put GITHUB_TOKEN        # 粘贴上一步的 token
 
 3. 修改 `wrangler.toml` 里的 `GITHUB_REPO = "你的用户名/law"`，再 `wrangler deploy` 一次。
 
-4. 验证：
+> **`https://law-sync.xxx.workers.dev` 里的 `xxx` 是什么？**
+>
+> 是**你 Cloudflare 账号的 `workers.dev` 子域**，不是 GitHub 用户名，和仓库无关。
+>
+> - `law-sync` 是 `cloudflare/wrangler.toml` 里的 `name`（Worker 名字），可以改；
+> - `xxx` 是第一次部署 Worker 时 Cloudflare 让你取的名字（或自动分配），**整个账号只有一个**；
+> - `wrangler deploy` 成功后会直接打印完整地址，形如：
+>
+>   ```
+>   Deployed law-sync triggers
+>   https://law-sync.xxx.workers.dev
+>   ```
+>
+> - 也可以在 Cloudflare 后台查：`Workers & Pages` 首页显示「Your subdomain: xxx.workers.dev」，
+>   或进入该 Worker → `Settings` → `Domains & Routes`，里面有一条 `law-sync.xxx.workers.dev`。
+> - 如果还没部署 Worker（只用 GitHub Pages），这个地址就不存在，`config.js` 留空即可。
+
+4. 验证（把 `xxx` 换成你自己的子域）：
 
 ```bat
-curl -X POST https://law-sync.你的子域.workers.dev/api/update
+curl -X POST https://law-sync.xxx.workers.dev/api/update
 ```
 
 返回 `{"ok":true,"async":true,...}` 就通了，同时 GitHub Actions 里会出现一次运行。
@@ -261,7 +279,8 @@ curl -X POST https://law-sync.你的子域.workers.dev/api/update
 编辑 `assets/config.js`：
 
 ```js
-syncEndpoint: "https://law-sync.你的子域.workers.dev/api/update",
+// xxx 换成你的 workers.dev 子域，例如 https://law-sync.speacnow.workers.dev/api/update
+syncEndpoint: "https://law-sync.xxx.workers.dev/api/update",
 asyncSync: true,
 ```
 
