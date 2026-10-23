@@ -363,7 +363,23 @@ GET  /api/office/laws/lawVersion             版本号
 
 ---
 
-## 七、命令行速查
+## 七、AI 提问按钮（可选）
+
+点条文编号（「第五百六十三条」这类）会自动做两件事：把「法条原文 + 提问模板」复制到剪贴板，并打开你配置的 AI 站点。**不调用任何 API、不产生费用**。
+
+在 `assets/config.js` 里可以改三处：
+
+```js
+aiSite: "https://chat.deepseek.com/",   // 点开后跳到哪个 AI
+aiSiteQuery: "",                        // 支持 ?q= 预填的站点可填模板，如 "https://www.perplexity.ai/search?q={q}"
+aiPromptTemplate: "我在学习《{law}》{chapter}。…",  // 占位符：{law} {chapter} {article} {text}
+```
+
+- 留空 `aiSite` 就只复制、不跳转；
+- 跳转后浏览器若拦截弹窗，会弹提示，条文已在剪贴板，手动打开 AI 粘贴即可；
+- 国内常用站点（DeepSeek / 豆包 / Kimi）都要登录，且不支持 URL 预填，所以默认是"打开首页 + 粘贴"。
+
+## 八、命令行速查
 
 ```bat
 python server.py                      :: 启动（含后台自动同步）

@@ -308,7 +308,8 @@
         if (openArticle) out.push("</div>");
         out.push('<div class="art">');
         out.push(
-          '<p class="art-line"><span class="art-no">' + escapeHtml(m[1]) + "</span>" +
+          '<p class="art-line"><span class="art-no" title="点击让 AI 解释这一条">' +
+          escapeHtml(m[1]) + "</span>" +
           escapeHtml(line.slice(m[0].length)) + "</p>"
         );
         openArticle = true;
@@ -390,7 +391,8 @@
 
     html += '<div class="law-body">';
     chapters.forEach(function (ch) {
-      html += '<section class="law-chapter" id="ch-' + ch.id + '">';
+      html += '<section class="law-chapter" id="ch-' + ch.id + '" data-title="' +
+        escapeHtml(ch.title) + '">';
       html += renderLines(ch.content);
       html += "</section>";
     });
@@ -730,6 +732,92 @@
     })();
   }
 
+  /* ---------------- 点条号 → 复制条文并打开 AI ---------------- */
+
+  function syncCopy(text) {
+    var ok = false;
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      ok = document.execCommand("copy");
+    } catch (e) {
+      ok = false;
+    }
+    ta.remove();
+    return ok;
+  }
+
+  /** 同步复制优先（不打断手势），失败再走异步剪贴板 API */
+  function copyToClipboard(text) {
+    return new Promise(function (resolve) {
+      if (syncCopy(text)) return resolve(true);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { resolve(true); },
+          function () { resolve(false); }
+        );
+      } else {
+        resolve(false);
+      }
+    });
+  }
+
+  function buildPrompt(law, chapter, articleNo, text) {
+    var tpl = CONFIG.aiPromptTemplate ||
+      "我在学习《{law}》{chapter}。\n请解释这条法条，并举例：\n\n{article} {text}";
+    return tpl
+      .replace(/\{law\}/g, law ? law.title : "")
+      .replace(/\{chapter\}/g, chapter ? "（" + chapter + "）" : "")
+      .replace(/\{article\}/g, articleNo)
+      .replace(/\{text\}/g, text);
+  }
+
+  function aiUrl(prompt) {
+    var tpl = (CONFIG.aiSiteQuery || "").trim();
+    if (tpl && tpl.indexOf("{q}") >= 0) {
+      return tpl.replace(/\{q\}/g, encodeURIComponent(prompt));
+    }
+    var site = (CONFIG.aiSite || "").trim();
+    return /^https?:\/\//i.test(site) ? site : "";
+  }
+
+  function askAI(articleNo, artEl, section) {
+    var law = state.route.type === "law" ? state.lawById[state.route.lawId] : null;
+    var chapter = section ? section.getAttribute("data-title") || "" : "";
+    var raw = (artEl.innerText || "").trim();
+    var text = raw.indexOf(articleNo) === 0 ? raw.slice(articleNo.length).trim() : raw;
+
+    var prompt = buildPrompt(law, chapter, articleNo, text);
+    var url = aiUrl(prompt);
+
+    // 先在点击手势里开窗口，避免被弹窗拦截
+    if (url) window.open(url, "_blank", "noopener");
+
+    copyToClipboard(prompt).then(function (copied) {
+      if (copied) {
+        toast({
+          type: "info",
+          title: "已复制，去 AI 里粘贴",
+          body: "《" + escapeHtml(law ? law.title : "") + "》" + escapeHtml(articleNo) +
+            " 已复制到剪贴板。" + (url ? "<br>新标签页已打开，直接粘贴提问即可。" : ""),
+          timeout: 6000,
+        });
+      } else {
+        toast({
+          type: "error",
+          title: "复制失败",
+          body: "浏览器拒绝了剪贴板操作，请手动选中条文复制" +
+            (url ? "，再粘贴到已打开的 AI 页面。" : "。"),
+          timeout: 9000,
+        });
+      }
+    });
+  }
+
   /* ---------------- 路由 ---------------- */
 
   function parseHash() {
@@ -874,6 +962,13 @@
     });
 
     el.content.addEventListener("click", function (ev) {
+      var noEl = ev.target.closest(".art-no");
+      if (noEl) {
+        var artEl = noEl.closest(".art");
+        if (artEl) askAI(noEl.textContent.trim(), artEl, noEl.closest(".law-chapter"));
+        return;
+      }
+
       var card = ev.target.closest("[data-goto-subject]");
       if (!card) return;
       var id = Number(card.getAttribute("data-goto-subject"));
