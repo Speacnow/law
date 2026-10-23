@@ -24,19 +24,13 @@ window.LAW_CONFIG = {
   /** 源站接口，用于页面加载时比对版本号（CORS 已开放） */
   versionApi: "https://online-web-api-cdn.zhumavip.com/api/office/laws/lawVersion",
 
-  /** 点条号时打开的 AI 站点（留空则只复制不跳转） */
-  aiSite: "https://chat.deepseek.com/",
-
   /**
-   * 若目标站点支持 URL 预填，填带 {q} 的模板，例如：
-   *   "https://www.perplexity.ai/search?q={q}"
-   * 留空表示只打开站点首页，靠用户粘贴。
+   * 点条号时复制到剪贴板的内容模板。
+   * 占位符：{law} 法名 · {location} 编/章/节 · {article} 条号 · {text} 条文全文
    */
-  aiSiteQuery: "",
-
-  /** 提问模板，占位符：{law} {chapter} {article} {text} */
   aiPromptTemplate:
-    "我在学习《{law}》{chapter}。\n" +
-    "请用大白话解释下面这条法条，拆出适用要件，并举一个生活中的例子：\n\n" +
-    "{article} {text}",
+    "《{law}》{location}\n" +
+    "{article}\n" +
+    "{text}\n\n" +
+    "请解释一下这条法条是什么意思。",
 };

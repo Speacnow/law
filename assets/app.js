@@ -291,6 +291,7 @@
     var lines = String(text || "").split("\n");
     var out = [];
     var openArticle = false;
+    var currentJie = "";
 
     for (var i = 0; i < lines.length; i++) {
       var line = lines[i].trim();
@@ -299,6 +300,7 @@
       var tag = headingTag(line);
       if (tag) {
         if (openArticle) { out.push("</div>"); openArticle = false; }
+        if (/^第[一二三四五六七八九十百千零〇两\d]+节[\s　]/.test(line)) currentJie = line;
         out.push("<" + tag + ' class="law-h ' + tag + '">' + escapeHtml(line) + "</" + tag + ">");
         continue;
       }
@@ -306,9 +308,9 @@
       var m = RE_ARTICLE.exec(line);
       if (m) {
         if (openArticle) out.push("</div>");
-        out.push('<div class="art">');
+        out.push('<div class="art" data-jie="' + escapeHtml(currentJie) + '">');
         out.push(
-          '<p class="art-line"><span class="art-no" title="点击让 AI 解释这一条">' +
+          '<p class="art-line"><span class="art-no" title="点击复制这一条（含出处）">' +
           escapeHtml(m[1]) + "</span>" +
           escapeHtml(line.slice(m[0].length)) + "</p>"
         );
@@ -385,14 +387,32 @@
     if (isDesktopLayout()) openToc();
   }
 
+  /** 章 id → 所属「编 · 分编」路径 */
+  function chapterTrail(sections, chapterId) {
+    var found = null;
+    (function walk(nodes, trail) {
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        if (n.id === chapterId) { found = trail; return; }
+        if (n.children && n.children.length) {
+          walk(n.children, trail.concat(n.title));
+          if (found) return;
+        }
+      }
+    })(sections || [], []);
+    return found || [];
+  }
+
   function renderContent(law, doc, view, chapterId) {
     var chapters = doc.chapters || [];
     var html = "";
 
     html += '<div class="law-body">';
     chapters.forEach(function (ch) {
-      html += '<section class="law-chapter" id="ch-' + ch.id + '" data-title="' +
-        escapeHtml(ch.title) + '">';
+      var trail = chapterTrail(law.sections, ch.id);
+      html += '<section class="law-chapter" id="ch-' + ch.id +
+        '" data-title="' + escapeHtml(ch.title) +
+        '" data-path="' + escapeHtml(trail.join(" · ")) + '">';
       html += renderLines(ch.content);
       html += "</section>";
     });
@@ -766,52 +786,42 @@
     });
   }
 
-  function buildPrompt(law, chapter, articleNo, text) {
+  function buildPrompt(law, location, articleNo, text) {
     var tpl = CONFIG.aiPromptTemplate ||
-      "我在学习《{law}》{chapter}。\n请解释这条法条，并举例：\n\n{article} {text}";
+      "《{law}》{location}\n{article}\n{text}\n\n请解释一下这条法条是什么意思。";
     return tpl
       .replace(/\{law\}/g, law ? law.title : "")
-      .replace(/\{chapter\}/g, chapter ? "（" + chapter + "）" : "")
+      .replace(/\{location\}/g, location || "")
       .replace(/\{article\}/g, articleNo)
       .replace(/\{text\}/g, text);
-  }
-
-  function aiUrl(prompt) {
-    var tpl = (CONFIG.aiSiteQuery || "").trim();
-    if (tpl && tpl.indexOf("{q}") >= 0) {
-      return tpl.replace(/\{q\}/g, encodeURIComponent(prompt));
-    }
-    var site = (CONFIG.aiSite || "").trim();
-    return /^https?:\/\//i.test(site) ? site : "";
   }
 
   function askAI(articleNo, artEl, section) {
     var law = state.route.type === "law" ? state.lawById[state.route.lawId] : null;
     var chapter = section ? section.getAttribute("data-title") || "" : "";
+    var path = section ? section.getAttribute("data-path") || "" : "";
+    var jie = artEl ? artEl.getAttribute("data-jie") || "" : "";
+    var location = [path, chapter, jie].filter(Boolean).join(" · ");
+
     var raw = (artEl.innerText || "").trim();
     var text = raw.indexOf(articleNo) === 0 ? raw.slice(articleNo.length).trim() : raw;
 
-    var prompt = buildPrompt(law, chapter, articleNo, text);
-    var url = aiUrl(prompt);
-
-    // 先在点击手势里开窗口，避免被弹窗拦截
-    if (url) window.open(url, "_blank", "noopener");
+    var prompt = buildPrompt(law, location, articleNo, text);
 
     copyToClipboard(prompt).then(function (copied) {
       if (copied) {
         toast({
           type: "info",
-          title: "已复制，去 AI 里粘贴",
+          title: "已复制条文",
           body: "《" + escapeHtml(law ? law.title : "") + "》" + escapeHtml(articleNo) +
-            " 已复制到剪贴板。" + (url ? "<br>新标签页已打开，直接粘贴提问即可。" : ""),
+            "（含编 / 章 / 节）已复制，粘贴到任意 AI 对话框即可提问。",
           timeout: 6000,
         });
       } else {
         toast({
           type: "error",
           title: "复制失败",
-          body: "浏览器拒绝了剪贴板操作，请手动选中条文复制" +
-            (url ? "，再粘贴到已打开的 AI 页面。" : "。"),
+          body: "浏览器拒绝了剪贴板操作，请手动选中条文复制。",
           timeout: 9000,
         });
       }
