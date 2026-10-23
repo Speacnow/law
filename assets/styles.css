@@ -312,6 +312,107 @@ a { color: inherit; text-decoration: none; }
   border-radius: 2px;
 }
 
+/* ---------- 正文搜索条 ---------- */
+
+.findbar {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  right: 0;
+  z-index: 39;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 6px 18px rgba(28, 24, 18, 0.06);
+}
+@media (min-width: 861px) {
+  .findbar { left: var(--sidebar-w); }
+  body.toc-docked .findbar { right: 350px; }
+}
+
+.findbar-inner {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.find-status {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.find-status b {
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.find-actions { display: flex; align-items: center; gap: 6px; }
+
+.find-btn {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.find-btn:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent-2);
+  background: var(--accent-soft);
+}
+.find-btn:disabled { opacity: 0.4; cursor: default; }
+.find-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.find-close { font-size: 16px; line-height: 1; }
+
+/* 命中高亮 */
+.law-body mark.hit {
+  background: #ffe9a8;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+.law-body mark.hit.current {
+  background: #f2b64c;
+  box-shadow: 0 0 0 2px rgba(242, 182, 76, 0.32);
+}
+
+/* 数字条号定位时的闪烁 */
+.art-no.is-jump {
+  color: var(--accent);
+  background: #ffe9a8;
+  border-radius: 2px;
+  box-shadow: 0 0 0 3px #ffe9a8;
+}
+
+/* 搜索条出现时给正文让位 */
+body.has-findbar .content { padding-top: 88px; }
+
 /* ---------- 布局 ---------- */
 
 .layout {
@@ -1029,6 +1130,8 @@ body.toc-docked .top-btn { right: 376px; }
 
 @media (max-width: 860px) {
   .topbar { gap: 10px; padding: 0 12px; }
+  .findbar-inner { padding: 0 12px; gap: 10px; }
+  body.has-findbar .content { padding-top: 70px; }
   .brand { gap: 9px; }
   .brand-mark { width: 34px; height: 34px; font-size: 19px; }
   .brand-text strong { font-size: 15px; letter-spacing: 0.02em; }

@@ -149,7 +149,8 @@
   }
 
   function renderNav() {
-    var query = state.query.trim();
+    // 法律页的搜索只作用于正文，左侧目录保持完整
+    var query = state.route.type === "law" ? "" : state.query.trim();
     var catalog = state.catalog;
 
     if (!catalog) {
@@ -212,6 +213,7 @@
 
     el.tocBtn.hidden = true;
     closeToc();
+    if (el.searchInput) el.searchInput.placeholder = "搜索法律法规名称，按 / 聚焦";
 
     var chapterTotal = 0;
     catalog.subjects.forEach(function (s) {
@@ -430,6 +432,7 @@
     }
 
     if (chapterId) scrollToChapter(chapterId, false);
+    else if (state.query && state.route.type === "law") runFind(state.query);
   }
 
   function scrollToChapter(chapterId, smooth) {
@@ -449,6 +452,7 @@
     }
     el.tocBtn.hidden = true;      // 正文加载完再决定是否显示
     closeToc();
+    if (el.searchInput) el.searchInput.placeholder = "在《" + law.title + "》中搜索条文";
     var subject = state.subjectById[law.subjectId];
 
     var metaChips = '<span class="chip">学科 · <b>' + escapeHtml(subject.title) + "</b></span>";
@@ -828,6 +832,173 @@
     });
   }
 
+  /* ---------------- 正文搜索 ---------------- */
+
+  var finder = { marks: [], index: -1 };
+  var FIND_CAP = 400;
+
+  var CN_DIGITS = { "零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4,
+    "五": 5, "六": 6, "七": 7, "八": 8, "九": 9 };
+  var CN_UNITS = { "十": 10, "百": 100, "千": 1000 };
+
+  function cnToNumber(text) {
+    var section = 0;
+    var num = 0;
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      if (Object.prototype.hasOwnProperty.call(CN_DIGITS, ch)) {
+        num = CN_DIGITS[ch];
+      } else if (Object.prototype.hasOwnProperty.call(CN_UNITS, ch)) {
+        if (num === 0) num = 1;
+        section += num * CN_UNITS[ch];
+        num = 0;
+      } else {
+        return NaN;
+      }
+    }
+    return section + num;
+  }
+
+  function articleNumber(node) {
+    var t = (node && node.textContent ? node.textContent : "").trim();
+    var m = /^第(.+?)条/.exec(t);
+    return m ? cnToNumber(m[1]) : NaN;
+  }
+
+  function showFindBar(html) {
+    el.findStatus.innerHTML = html;
+    el.findBar.hidden = false;
+    document.body.classList.add("has-findbar");
+  }
+
+  function hideFindBar() {
+    el.findBar.hidden = true;
+    document.body.classList.remove("has-findbar");
+  }
+
+  function clearFindHighlights() {
+    var body = el.content.querySelector(".law-body");
+    if (body) {
+      body.querySelectorAll("mark.hit").forEach(function (m) {
+        m.replaceWith(document.createTextNode(m.textContent));
+      });
+      body.normalize();
+    }
+    finder.marks = [];
+    finder.index = -1;
+  }
+
+  function clearFind() {
+    clearFindHighlights();
+    el.content.querySelectorAll(".art-no.is-jump").forEach(function (n) {
+      n.classList.remove("is-jump");
+    });
+    hideFindBar();
+  }
+
+  function gotoMark(i, instant) {
+    if (!finder.marks.length) return;
+    finder.index = ((i % finder.marks.length) + finder.marks.length) % finder.marks.length;
+    finder.marks.forEach(function (m) { m.classList.remove("current"); });
+    var cur = finder.marks[finder.index];
+    cur.classList.add("current");
+    cur.scrollIntoView({ block: "center", behavior: instant ? "auto" : "smooth" });
+
+    var suffix = finder.marks.length >= FIND_CAP ? "（仅显示前 " + FIND_CAP + " 处）" : "";
+    showFindBar("第 <b>" + (finder.index + 1) + "</b> / " + finder.marks.length + " 处" + suffix);
+  }
+
+  function highlightMatches(re) {
+    var body = el.content.querySelector(".law-body");
+    if (!body) return;
+
+    var walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        if (!node.nodeValue || !node.nodeValue.replace(/\s/g, "")) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement && node.parentElement.closest("mark.hit")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(function (node) {
+      if (finder.marks.length >= FIND_CAP) return;
+      var text = node.nodeValue;
+      re.lastIndex = 0;
+      var m = re.exec(text);
+      if (!m) return;
+
+      var frag = document.createDocumentFragment();
+      var last = 0;
+      while (m && finder.marks.length < FIND_CAP) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var mark = document.createElement("mark");
+        mark.className = "hit";
+        mark.textContent = m[0];
+        frag.appendChild(mark);
+        finder.marks.push(mark);
+        last = m.index + m[0].length;
+        m = re.exec(text);
+        if (m && m[0].length === 0) break;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function runFind(rawQuery) {
+    clearFindHighlights();
+    var q = (rawQuery || "").trim();
+
+    if (!q || state.route.type !== "law") {
+      hideFindBar();
+      return;
+    }
+
+    // 纯数字 → 直接定位条号
+    var numeric = /^(\d{1,4})\s*条?$/.exec(q);
+    if (numeric) {
+      var n = Number(numeric[1]);
+      var target = null;
+      el.content.querySelectorAll(".art").forEach(function (a) {
+        if (target) return;
+        if (articleNumber(a.querySelector(".art-no")) === n) target = a;
+      });
+      if (target) {
+        var no = target.querySelector(".art-no");
+        no.classList.add("is-jump");
+        setTimeout(function () { no.classList.remove("is-jump"); }, 1800);
+        target.scrollIntoView({ block: "center", behavior: "smooth" });
+        el.findPrev.disabled = true;
+        el.findNext.disabled = true;
+        showFindBar("已定位 <b>" + escapeHtml(no.textContent) + "</b>");
+        return;
+      }
+    }
+
+    var re;
+    try {
+      re = new RegExp(escapeRegExp(q), "gi");
+    } catch (e) {
+      return;
+    }
+
+    highlightMatches(re);
+
+    if (!finder.marks.length) {
+      el.findPrev.disabled = true;
+      el.findNext.disabled = true;
+      showFindBar("未找到「" + escapeHtml(q) + "」");
+      return;
+    }
+
+    el.findPrev.disabled = finder.marks.length < 2;
+    el.findNext.disabled = finder.marks.length < 2;
+    gotoMark(0, true);
+  }
+
   /* ---------------- 路由 ---------------- */
 
   function parseHash() {
@@ -845,6 +1016,16 @@
 
   function applyRoute() {
     state.route = parseHash();
+
+    // 切换页面（首页 ↔ 法律、法律 ↔ 法律）时清空搜索，避免残留高亮
+    var key = state.route.type === "law" ? "law:" + state.route.lawId : "home";
+    if (state.lastRouteKey !== undefined && state.lastRouteKey !== key) {
+      clearFind();
+      state.query = "";
+      if (el.searchInput) el.searchInput.value = "";
+      if (el.clearBtn) el.clearBtn.hidden = true;
+    }
+    state.lastRouteKey = key;
 
     if (state.route.type === "law") {
       var law = state.lawById[state.route.lawId];
@@ -1030,16 +1211,38 @@
       searchTimer = setTimeout(function () {
         state.query = el.searchInput.value;
         el.clearBtn.hidden = !state.query;
-        renderNav();
-        if (state.query && window.matchMedia("(max-width: 860px)").matches) openSidebar();
-      }, 120);
+        if (state.route.type === "law") {
+          runFind(state.query);          // 法律页：搜正文
+        } else {
+          renderNav();                   // 首页：过滤目录
+        }
+      }, 180);
+    });
+
+    el.searchInput.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter" && state.route.type === "law") {
+        ev.preventDefault();
+        if (!finder.marks.length) return;
+        gotoMark(finder.index + (ev.shiftKey ? -1 : 1));
+      }
+    });
+
+    el.findPrev.addEventListener("click", function () { gotoMark(finder.index - 1); });
+    el.findNext.addEventListener("click", function () { gotoMark(finder.index + 1); });
+    el.findClose.addEventListener("click", function () {
+      el.searchInput.value = "";
+      state.query = "";
+      el.clearBtn.hidden = true;
+      clearFind();
+      el.searchInput.blur();
     });
 
     el.clearBtn.addEventListener("click", function () {
       el.searchInput.value = "";
       state.query = "";
       el.clearBtn.hidden = true;
-      renderNav();
+      if (state.route.type === "law") clearFind();
+      else renderNav();
       el.searchInput.focus();
     });
 
@@ -1078,7 +1281,8 @@
       }, 150);
     });
 
-    document.addEventListener("keydown", function (ev) {      if (ev.key === "/" && document.activeElement !== el.searchInput) {
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "/" && document.activeElement !== el.searchInput) {
         ev.preventDefault();
         el.searchInput.focus();
       } else if (ev.key === "Escape") {
@@ -1086,7 +1290,8 @@
           el.searchInput.value = "";
           state.query = "";
           el.clearBtn.hidden = true;
-          renderNav();
+          if (state.route.type === "law") clearFind();
+          else renderNav();
         }
         closeSidebar();
         closeToc();
@@ -1110,6 +1315,11 @@
     el.updateBtn = document.getElementById("updateBtn");
     el.syncDot = document.getElementById("syncDot");
     el.toasts = document.getElementById("toasts");
+    el.findBar = document.getElementById("findBar");
+    el.findStatus = document.getElementById("findStatus");
+    el.findPrev = document.getElementById("findPrev");
+    el.findNext = document.getElementById("findNext");
+    el.findClose = document.getElementById("findClose");
     el.tocBtn = document.getElementById("tocBtn");
     el.tocDrawer = document.getElementById("tocDrawer");
     el.tocScrim = document.getElementById("tocScrim");

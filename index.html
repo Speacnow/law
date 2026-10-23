@@ -45,6 +45,21 @@
     </button>
   </header>
 
+  <div class="findbar" id="findBar" hidden>
+    <div class="findbar-inner">
+      <span class="find-status" id="findStatus" aria-live="polite"></span>
+      <div class="find-actions">
+        <button class="find-btn" id="findPrev" type="button" aria-label="上一个" title="上一个（Shift+Enter）">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"></path><path d="M6 11l6-6 6 6"></path></svg>
+        </button>
+        <button class="find-btn" id="findNext" type="button" aria-label="下一个" title="下一个（Enter）">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"></path><path d="M6 13l6 6 6-6"></path></svg>
+        </button>
+        <button class="find-btn find-close" id="findClose" type="button" aria-label="关闭搜索">&times;</button>
+      </div>
+    </div>
+  </div>
+
   <div class="layout">
     <div class="scrim" id="scrim" hidden></div>
 
