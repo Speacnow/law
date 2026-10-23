@@ -905,8 +905,18 @@
 
     document.addEventListener("click", function (ev) {
       if (el.tocDrawer.hidden) return;
+      if (isDesktopLayout()) return;   // 桌面端常驻，只由 × 关闭
       if (ev.target.closest("#tocDrawer") || ev.target.closest("#tocBtn")) return;
       closeToc();
+    });
+
+    el.searchInput.addEventListener("focus", function () {
+      document.body.classList.add("searching");
+    });
+
+    el.searchInput.addEventListener("blur", function () {
+      // 有内容时保持展开，方便看/search 结果；空了就收回去
+      if (!el.searchInput.value) document.body.classList.remove("searching");
     });
 
     var searchTimer = null;
@@ -1030,6 +1040,7 @@
         el.searchInput.value = seeded;
         state.query = seeded;
         el.clearBtn.hidden = false;
+        document.body.classList.add("searching");
         if (window.matchMedia("(max-width: 860px)").matches) openSidebar();
       }
 

@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    法律法规汇编 — 样式
    ========================================================================== */
 
@@ -1027,6 +1027,17 @@ body.toc-docked .top-btn { right: 376px; }
   .brand-text small { display: none; }
   .search { flex: 1 1 auto; min-width: 0; max-width: none; }
   .search input { padding-left: 32px; padding-right: 30px; }
+  /* 手机屏窄，提示文字放不下，直接隐藏 */
+  .search input::placeholder { color: transparent; }
+
+  /* 聚焦时站名收起，搜索框滑到 logo 右侧 */
+  .brand-text {
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.28s ease, opacity 0.2s ease;
+  }
+  body.searching .brand-text { max-width: 0; opacity: 0; }
   .search-icon { left: 10px; }
   .topbar-stat { display: none; }
   .icon-btn { display: block; flex: none; }
