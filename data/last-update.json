@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-23T20:57:35+08:00",
+  "ok": true,
+  "durationMs": 2357,
+  "upstreamVersion": "20261023182425",
+  "subjectCount": 8,
+  "lawCount": 247,
+  "content": {
+    "lawCount": 247,
+    "chapters": 1033,
+    "chars": 1870946,
+    "written": 0
+  },
+  "diff": {
+    "subjectsAdded": [],
+    "subjectsRemoved": [],
+    "lawsAdded": [],
+    "lawsRemoved": [],
+    "lawsRenamed": [],
+    "lawsMoved": [],
+    "unchanged": true
+  }
+}

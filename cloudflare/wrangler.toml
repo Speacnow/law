@@ -1,0 +1,16 @@
+#:schema https://developers.cloudflare.com/workers/wrangler/configuration/
+name = "law-sync"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# 每周一 06:00（北京时间）兜底触发一次 GitHub Actions
+# UTC 周日 22:00
+[triggers]
+crons = ["0 22 * * 0"]
+
+# 非敏感变量可以直接写在这里；GITHUB_TOKEN 请用 `wrangler secret put GITHUB_TOKEN`
+[vars]
+GITHUB_REPO = "your-name/law"
+GITHUB_WORKFLOW = "sync.yml"
+GITHUB_REF = "main"
+ALLOW_ORIGIN = "*"

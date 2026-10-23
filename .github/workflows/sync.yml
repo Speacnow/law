@@ -1,0 +1,44 @@
+name: 同步法律法规
+
+on:
+  schedule:
+    # UTC 时间。每天 22:00 UTC = 北京时间次日 06:00
+    - cron: "0 22 * * *"
+  # 允许在网页 / Actions 页面手动触发（Cloudflare Worker 也调这个）
+  workflow_dispatch:
+
+permissions:
+  contents: write          # 需要 push 回仓库
+
+concurrency:
+  group: law-sync          # 同一时间只跑一个
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 同步目录与正文
+        run: python tools/sync.py --once
+
+      - name: 有变化才提交
+        run: |
+          git config user.name  "law-sync-bot"
+          git config user.email "law-sync-bot@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "本周无变化，跳过提交"
+          else
+            git commit -m "chore: 同步法律法规 $(date -u +%F)"
+            git push
+          fi

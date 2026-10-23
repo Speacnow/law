@@ -1,0 +1,1242 @@
+{
+"generatedAt": "2026-10-23T20:57:35+08:00",
+"lawCount": 247,
+"totalChars": 1870946,
+"laws": {
+"1081": {
+"hash": "294f120e94e148e2dc5f9ab652564cc93c5be1ef",
+"chapters": 5,
+"chars": 17897
+},
+"1087": {
+"hash": "fcef384df5d19982849adb3da351e84bed95a4df",
+"chapters": 1,
+"chars": 1145
+},
+"1088": {
+"hash": "337bf288e645ad043159c80970a8df9f35011409",
+"chapters": 7,
+"chars": 7107
+},
+"1096": {
+"hash": "d97608413897db700ecbe10faafd1924075b985c",
+"chapters": 6,
+"chars": 16398
+},
+"1103": {
+"hash": "812e62ca122b6c544dae9fe5a2cf5e02a6b9356d",
+"chapters": 12,
+"chars": 9760
+},
+"1116": {
+"hash": "61f2e29270d54339f3935322b64d56c3b1837334",
+"chapters": 6,
+"chars": 9445
+},
+"1123": {
+"hash": "00814e8d7e2e6c242e49c7a0a03cec670839ae98",
+"chapters": 5,
+"chars": 6512
+},
+"1129": {
+"hash": "2129efeb3d0ca3e0ba8f95d9db86106b79f82cd4",
+"chapters": 1,
+"chars": 2074
+},
+"1130": {
+"hash": "fe5cf20cc360ed3eca484283d738ef0bd09fc7bb",
+"chapters": 9,
+"chars": 11801
+},
+"1140": {
+"hash": "e84be874d86d292a7b3a000a73921ca6f18b74df",
+"chapters": 5,
+"chars": 18760
+},
+"1146": {
+"hash": "d8c7750529751189559c7271f7e2efe45b45fe64",
+"chapters": 9,
+"chars": 9278
+},
+"1156": {
+"hash": "4b296de82b34130b6f69c903d92cf37be7a958c6",
+"chapters": 8,
+"chars": 9638
+},
+"1165": {
+"hash": "5fb371384becc7bbf1ecb763c70beb04f190d5b8",
+"chapters": 13,
+"chars": 23802
+},
+"1179": {
+"hash": "d2b0e7663ace6deb805e9886e9fe81a42b53c625",
+"chapters": 1,
+"chars": 3213
+},
+"1180": {
+"hash": "c24ed3790493609541284facf743723e1bade30f",
+"chapters": 1,
+"chars": 2043
+},
+"1181": {
+"hash": "c62a966d66ffd1ac3c1c44dc8aa75abf20fb7aac",
+"chapters": 1,
+"chars": 1131
+},
+"1182": {
+"hash": "4839e01242ba8a71c90dd204ce7aa437f810fd5f",
+"chapters": 6,
+"chars": 9862
+},
+"1189": {
+"hash": "974002279a92941343fab9bf971f8baa4ad237c0",
+"chapters": 13,
+"chars": 16708
+},
+"1203": {
+"hash": "1410be179748ad841ae49d0a70b8b5077ac8c9f3",
+"chapters": 7,
+"chars": 7953
+},
+"2370": {
+"hash": "6fa3a6553940b9be3bda140b0690740a6ad06b08",
+"chapters": 7,
+"chars": 6850
+},
+"1211": {
+"hash": "904992c045756ccd8488011c7985946a1560fd80",
+"chapters": 1,
+"chars": 1556
+},
+"1212": {
+"hash": "a0197932f576b9fe303c54b405ffb6a76ac41105",
+"chapters": 1,
+"chars": 3690
+},
+"1213": {
+"hash": "2515e66795372eeef27cb66b77d27d25eee38760",
+"chapters": 1,
+"chars": 2538
+},
+"1214": {
+"hash": "591a4b1e2451ca515d303f71afba1a9cdabe6734",
+"chapters": 1,
+"chars": 1201
+},
+"1215": {
+"hash": "a36c73bf1aa73e9121f83fc42d4e09c00d9d7337",
+"chapters": 1,
+"chars": 1609
+},
+"2417": {
+"hash": "e0141138120ccf6b66bccff32c2022cd56034154",
+"chapters": 1,
+"chars": 4346
+},
+"2418": {
+"hash": "de2a728bb36e2b7f623cc385fce03218bf06eeac",
+"chapters": 7,
+"chars": 5971
+},
+"2440": {
+"hash": "779b169d505bd478f8463066c8027cbf9e80f96b",
+"chapters": 6,
+"chars": 4790
+},
+"2453": {
+"hash": "5e893ae2d9165725bffded2eb6b2eeb5200d6b97",
+"chapters": 8,
+"chars": 9453
+},
+"1218": {
+"hash": "7c4ee8009fc4d00503d63da78c3ae85ca4b99a38",
+"chapters": 6,
+"chars": 5142
+},
+"1225": {
+"hash": "e267dc46675d53b6d668bb427f157effd29f3c42",
+"chapters": 8,
+"chars": 6658
+},
+"1234": {
+"hash": "a76a950ee20177be81049293b8ab7084d801fefb",
+"chapters": 7,
+"chars": 2234
+},
+"1242": {
+"hash": "66bfaccec5a358027622ed09f2d354e05cefe13e",
+"chapters": 3,
+"chars": 10357
+},
+"1246": {
+"hash": "4aa244b305b7dc6cc4b9ade906ce6a95c682fc80",
+"chapters": 6,
+"chars": 4632
+},
+"1253": {
+"hash": "b895400ad82f34de3370c84d318538093d965262",
+"chapters": 8,
+"chars": 7076
+},
+"1262": {
+"hash": "04dd8ea4b03e5481c94d40c91fab4454a3f512ff",
+"chapters": 1,
+"chars": 70
+},
+"1267": {
+"hash": "139ca9f5d28378652e7fcbedbcb60c00f845c7da",
+"chapters": 7,
+"chars": 7820
+},
+"1275": {
+"hash": "f7bd6888e15136234a3e4cab81145558297f8e84",
+"chapters": 8,
+"chars": 13202
+},
+"1284": {
+"hash": "1aa2ca99fc1af6ab3b451626a07aa9cfd0c2c249",
+"chapters": 6,
+"chars": 9073
+},
+"1291": {
+"hash": "336c1f5ffcdb8b9d32f066db2a8df88e01928eaf",
+"chapters": 5,
+"chars": 9187
+},
+"1297": {
+"hash": "f9ff1e12b28a99884a32bfcf48fc240ee343ee25",
+"chapters": 1,
+"chars": 617
+},
+"1298": {
+"hash": "586eb2e2ed02bde9246b8192bba52a39a83c0ebd",
+"chapters": 9,
+"chars": 9116
+},
+"1308": {
+"hash": "d380c94f5ff3ebd5d173062d80fb560f1e9151fb",
+"chapters": 8,
+"chars": 15866
+},
+"1317": {
+"hash": "8cd720de49e8735c2b08f973295e06609a25e306",
+"chapters": 6,
+"chars": 4075
+},
+"1324": {
+"hash": "91644cb436389821858566af5d1248961cb6f3a4",
+"chapters": 1,
+"chars": 4402
+},
+"1325": {
+"hash": "c721f764e11965dd9bf6434f78e9acd673f8ce29",
+"chapters": 7,
+"chars": 5678
+},
+"1333": {
+"hash": "600ccd4117892a31d71477c0d77b5a26256cddd4",
+"chapters": 6,
+"chars": 5273
+},
+"1340": {
+"hash": "92a95058b4bb1e81c342515fb1af751315b717c0",
+"chapters": 7,
+"chars": 5340
+},
+"1348": {
+"hash": "978b5c562ea055b37e110c169b4d9253b3ecac71",
+"chapters": 1,
+"chars": 1836
+},
+"1349": {
+"hash": "1358181d9502c0f4f11ad3391cfda3c71e5264b8",
+"chapters": 7,
+"chars": 9701
+},
+"2183": {
+"hash": "5a054234e6a59a158ef6d1f3c0b68fd9b1df3d3c",
+"chapters": 7,
+"chars": 7002
+},
+"1806": {
+"hash": "031d34a175a6d0546e324b4e00a62dfa1706eb21",
+"chapters": 85,
+"chars": 111438
+},
+"2217": {
+"hash": "c51ce324a20c4bb7ac7c36a8327966b86fb31f64",
+"chapters": 5,
+"chars": 15539
+},
+"1908": {
+"hash": "41e37759a59f504fc8fff06b4af07b4f563af186",
+"chapters": 1,
+"chars": 2750
+},
+"1925": {
+"hash": "57982b6005b272436e8be075a4696240fc0fda69",
+"chapters": 1,
+"chars": 5584
+},
+"2227": {
+"hash": "63ba0b7a8e749420c92b6cabe2b274cd056a50b1",
+"chapters": 9,
+"chars": 17169
+},
+"1909": {
+"hash": "1716c4c76ce4baa969ae9084a907a1a3ea2fb440",
+"chapters": 1,
+"chars": 2417
+},
+"1919": {
+"hash": "6bba0470925f8dab93bae9a25c1fbc660db1fe71",
+"chapters": 1,
+"chars": 9661
+},
+"2250": {
+"hash": "8e436b48c4f6e4c0dbe8e5a4d23151f770c60583",
+"chapters": 1,
+"chars": 4446
+},
+"1920": {
+"hash": "37882a076a501185888f77cde37a468fdeaca688",
+"chapters": 1,
+"chars": 3564
+},
+"2251": {
+"hash": "d48aa43e1ba76a65e74551df004ec5ea06535da0",
+"chapters": 1,
+"chars": 4202
+},
+"1912": {
+"hash": "12c21e1dd4f4bf0dccd4ed238d2b380988b7c73f",
+"chapters": 1,
+"chars": 4898
+},
+"1907": {
+"hash": "86f0a0167fe3718a08567d62f2ef03e189b85263",
+"chapters": 1,
+"chars": 2778
+},
+"1911": {
+"hash": "940f8cd7cc15330c016cfd79b59d3c645dd33182",
+"chapters": 1,
+"chars": 2848
+},
+"1913": {
+"hash": "af760bd2c76916e2beb6cf2c25d275e4e6494d1a",
+"chapters": 1,
+"chars": 3342
+},
+"1914": {
+"hash": "aa3e36033e87efffc531fc1dab64460c0232d6df",
+"chapters": 1,
+"chars": 5359
+},
+"1915": {
+"hash": "0ae197b5c01b038c452f354401ed8cab9ec98a8e",
+"chapters": 1,
+"chars": 8810
+},
+"1916": {
+"hash": "09fa0da2ebaeef4ec213f2111fac0c23cc311c3e",
+"chapters": 1,
+"chars": 2151
+},
+"1917": {
+"hash": "4962137f8f12fc8f26e57d2d65e9e4bd5534a96b",
+"chapters": 1,
+"chars": 2219
+},
+"1918": {
+"hash": "f905bb718bb8d46959049f5e1869ce49266366fd",
+"chapters": 1,
+"chars": 5217
+},
+"1921": {
+"hash": "a7a5189cd40ec8ae5ff192cf172e70741d85adb7",
+"chapters": 1,
+"chars": 701
+},
+"1922": {
+"hash": "c798e91a217bae338377202c271cabde6d8fe171",
+"chapters": 1,
+"chars": 3348
+},
+"1923": {
+"hash": "94431b0efb2794b215e75b6d069e782f8fc0138f",
+"chapters": 1,
+"chars": 2427
+},
+"1924": {
+"hash": "bcb75f39e3af34705519f24a84e97781f0071063",
+"chapters": 1,
+"chars": 3784
+},
+"2174": {
+"hash": "7b6f02d7668fa364d8b4e8f0bbd27cd8704054c1",
+"chapters": 8,
+"chars": 9736
+},
+"1358": {
+"hash": "e99a1b69d6ca50245dfafa0bc283d4bfcb10c211",
+"chapters": 16,
+"chars": 74247
+},
+"1377": {
+"hash": "0d23a4d706b2d1c3400a3c2e94bd8451b032b03b",
+"chapters": 1,
+"chars": 2095
+},
+"1378": {
+"hash": "545be955975107230a3613fdbf19af942b3f0fcb",
+"chapters": 1,
+"chars": 230
+},
+"1379": {
+"hash": "b0f0a0f343c15508848f06c49ac8ce48fb41d0e9",
+"chapters": 1,
+"chars": 1380
+},
+"1380": {
+"hash": "a6eddc29ebca87676b0b80fb01ddcdf0e0981f2a",
+"chapters": 1,
+"chars": 1897
+},
+"1381": {
+"hash": "7cfb749a1452eedcb36621ce251da3a34d36475e",
+"chapters": 1,
+"chars": 960
+},
+"1382": {
+"hash": "1a879a5ea14a327558e961f2c7c975c5e9c79675",
+"chapters": 1,
+"chars": 3878
+},
+"1383": {
+"hash": "eaa891da83a8cd54a9293b0897d6ce85fce46228",
+"chapters": 1,
+"chars": 2781
+},
+"1384": {
+"hash": "3d05a7cd1aef47f0bcfc4b388b9df45a80e28464",
+"chapters": 1,
+"chars": 7462
+},
+"1385": {
+"hash": "53e19dee8e2cf81a008df7bbb6be4f1e22f719fa",
+"chapters": 1,
+"chars": 8863
+},
+"1386": {
+"hash": "5ebf007873552911ff8ea72735fcb6dff133c1b5",
+"chapters": 1,
+"chars": 306
+},
+"1387": {
+"hash": "26566f74b0448090206cd6b1142e4c10ae95cdcc",
+"chapters": 1,
+"chars": 9680
+},
+"2211": {
+"hash": "a46951804b978d39f6f8b8ce8e485b33332cd896",
+"chapters": 1,
+"chars": 1749
+},
+"1388": {
+"hash": "6adf646d0b257a80a6f7b30f902670acebeb1a2f",
+"chapters": 1,
+"chars": 1323
+},
+"1389": {
+"hash": "9c92f529bea1f8bdedc1ab594811f7fd31081277",
+"chapters": 1,
+"chars": 545
+},
+"1390": {
+"hash": "b95368741681357843bb1b22e5272697129038fa",
+"chapters": 1,
+"chars": 389
+},
+"1391": {
+"hash": "f800b371a0f7f1648050b3a0122f0e40f6b8dc15",
+"chapters": 1,
+"chars": 386
+},
+"1392": {
+"hash": "17859043a87a4ae3fe0a7a9f4353d60142143c02",
+"chapters": 1,
+"chars": 255
+},
+"1393": {
+"hash": "641d99bd34bbfeaabd77707df345914f3ffdcd52",
+"chapters": 1,
+"chars": 664
+},
+"1394": {
+"hash": "1fdad0999ce16ba60d253ae50e2a0a3c0e846806",
+"chapters": 1,
+"chars": 271
+},
+"1395": {
+"hash": "9892956d1444fbb2ffd03697ddda39d09bce7743",
+"chapters": 1,
+"chars": 218
+},
+"1396": {
+"hash": "07d8779ea0aa7e252301f53570ac1e52f4e15442",
+"chapters": 1,
+"chars": 229
+},
+"1397": {
+"hash": "272d68cfe00f0bfc516da557ecf494f39e9da402",
+"chapters": 1,
+"chars": 272
+},
+"1398": {
+"hash": "b106a08c8263451bcd0d2e003fa7b3e934e494d7",
+"chapters": 1,
+"chars": 206
+},
+"1399": {
+"hash": "2975afc4c2c65692f08cfdb90cbd87057be10c33",
+"chapters": 1,
+"chars": 258
+},
+"1400": {
+"hash": "af86a8c8cef5274cf83f2c830cd752839e3dac6c",
+"chapters": 1,
+"chars": 369
+},
+"1401": {
+"hash": "b030b8e91aa849455beb3e84440bc757537ddc4c",
+"chapters": 5,
+"chars": 4109
+},
+"1407": {
+"hash": "011bae949540e7c5844d35913c85f90ca229d816",
+"chapters": 1,
+"chars": 1212
+},
+"1408": {
+"hash": "595950037ed0e6a0837fb6e5cf2ed3ea6c290a28",
+"chapters": 1,
+"chars": 1498
+},
+"1409": {
+"hash": "47d042393fd7b87446bbf08fe7b943c4823c46f2",
+"chapters": 1,
+"chars": 3899
+},
+"1410": {
+"hash": "36fa402fb0e196f10cd4c60d96c4c236d4fc3c7c",
+"chapters": 1,
+"chars": 7311
+},
+"1411": {
+"hash": "e5b1a2b98bef62be9033ebb9a4c81f705d52955b",
+"chapters": 1,
+"chars": 1342
+},
+"1412": {
+"hash": "cbecca105c51ccbabb11596309bcb67d642da43e",
+"chapters": 1,
+"chars": 2443
+},
+"1413": {
+"hash": "42f6485f7a2957a86c4847a7a3536afe244bdb11",
+"chapters": 1,
+"chars": 3565
+},
+"1415": {
+"hash": "0b1b1cf59d9b380dad8031aa08e04323b4416c04",
+"chapters": 1,
+"chars": 965
+},
+"1416": {
+"hash": "827b0c655afabe0fba0d88b744864fd1456cbcdd",
+"chapters": 1,
+"chars": 797
+},
+"1417": {
+"hash": "0239c4039b6b18546ec1137abf94d6ea22731900",
+"chapters": 1,
+"chars": 2992
+},
+"2271": {
+"hash": "2e831f33123cfcd12d7b5d0a6c794dd81476c579",
+"chapters": 1,
+"chars": 9186
+},
+"2259": {
+"hash": "8b935e3ae7c9a4ab9876ef4ad9a381c83cc0f26c",
+"chapters": 1,
+"chars": 8340
+},
+"2260": {
+"hash": "5b84d3d691a2f35d35e03bbca210568aa2495344",
+"chapters": 1,
+"chars": 1779
+},
+"1419": {
+"hash": "717eeef3dacb9b042d5da5fba276a800d2499b83",
+"chapters": 1,
+"chars": 1699
+},
+"1420": {
+"hash": "92d610f39cc20f861860edc7cf9133535be881c8",
+"chapters": 1,
+"chars": 1338
+},
+"1421": {
+"hash": "6cb9597cd4d6d440e25be861af1d26d305175dcf",
+"chapters": 1,
+"chars": 1306
+},
+"1422": {
+"hash": "703bed35eaf91110f06fdfdcef4d1417c4a4b5d8",
+"chapters": 1,
+"chars": 2246
+},
+"1423": {
+"hash": "4b8ad96057e31114a0755ccce4bd90d143d0f9a8",
+"chapters": 1,
+"chars": 1504
+},
+"1425": {
+"hash": "c2cb3c31af2dde9857ab8b762345585babaecac4",
+"chapters": 1,
+"chars": 1022
+},
+"1426": {
+"hash": "9bae0822ed981f6fde99b35d63cf2daadb4d963b",
+"chapters": 1,
+"chars": 2155
+},
+"2361": {
+"hash": "2fa89515bcd3399fa7d7a06780d1d7c48b2ce748",
+"chapters": 1,
+"chars": 2041
+},
+"2323": {
+"hash": "ff90d37e70e4cce046a8000b73bc2f9e43c4df5d",
+"chapters": 1,
+"chars": 1805
+},
+"1428": {
+"hash": "1ee1b625264edfa579f0aa9ff1de2bc7a0b1b080",
+"chapters": 1,
+"chars": 1012
+},
+"1429": {
+"hash": "367a93df3944d0e50a35e3084652ca1e5ebf78f4",
+"chapters": 1,
+"chars": 4607
+},
+"1430": {
+"hash": "fdf905d7f279f507e13ce622cedde83810696133",
+"chapters": 1,
+"chars": 5171
+},
+"1431": {
+"hash": "b455211bbe08ee4b12e12d408a58cc5a1bec746a",
+"chapters": 1,
+"chars": 3083
+},
+"1432": {
+"hash": "272a4141bf3183e9d768da1ffa73977abad77dd1",
+"chapters": 1,
+"chars": 4354
+},
+"1433": {
+"hash": "ccc05c363756d7375b17f93abe9ac58acefaa29a",
+"chapters": 1,
+"chars": 1431
+},
+"1434": {
+"hash": "04dc29ddb1e01b4be6ea66247aa72e2dbfb768bb",
+"chapters": 1,
+"chars": 2033
+},
+"1435": {
+"hash": "467b5184bcfbaf102f2aa5e0f6c156eefd5a8c22",
+"chapters": 1,
+"chars": 1855
+},
+"2343": {
+"hash": "93592bbb23b2355768a2fc508f0658311ab58099",
+"chapters": 1,
+"chars": 4353
+},
+"2360": {
+"hash": "869f579c94409ac70dee0d0d8ce1c5429c480a5c",
+"chapters": 1,
+"chars": 4949
+},
+"1622": {
+"hash": "948f4865108c8547e04fefd767b86b38d9394d61",
+"chapters": 18,
+"chars": 12189
+},
+"1649": {
+"hash": "8cf6f438041f5c9ff3d224d1cae361f724c80628",
+"chapters": 5,
+"chars": 2911
+},
+"1655": {
+"hash": "4047c0ca40b8401bb82dfff55cd13da34acd7221",
+"chapters": 6,
+"chars": 2843
+},
+"1662": {
+"hash": "6618071246ebc44809a47ecf948e52dfac079dc9",
+"chapters": 6,
+"chars": 16414
+},
+"1669": {
+"hash": "5346020baae85de400a1dc4415086a8bbee97fa0",
+"chapters": 7,
+"chars": 4744
+},
+"1677": {
+"hash": "570730e4dd99f5cdae31c93ad4d1e9dc462b89f8",
+"chapters": 7,
+"chars": 5185
+},
+"1685": {
+"hash": "ced3ddf2c9fdab637f8811152f6a29f0bba346fc",
+"chapters": 8,
+"chars": 11147
+},
+"1694": {
+"hash": "12daffea95b6923371236c058423cbe686d3f96f",
+"chapters": 1,
+"chars": 1956
+},
+"1695": {
+"hash": "25c343ee75e0f645c5760d9990bd22842bc1216f",
+"chapters": 8,
+"chars": 10378
+},
+"2307": {
+"hash": "6f47eb3efe2e030daa8153827b443b9f756ef623",
+"chapters": 6,
+"chars": 21628
+},
+"1711": {
+"hash": "e075d7271e76c35bf560c261e5eecc84c6ee49c8",
+"chapters": 7,
+"chars": 9198
+},
+"1719": {
+"hash": "254e20b9c6cc240996c48227c4179bf0bbb38fc7",
+"chapters": 7,
+"chars": 13135
+},
+"1727": {
+"hash": "e916d79ba5203a9ca916a8d768b63cd7d6947dfc",
+"chapters": 7,
+"chars": 7789
+},
+"1735": {
+"hash": "cd9b0fa48566198f2b3046db43b6d43fa7719f92",
+"chapters": 6,
+"chars": 7486
+},
+"2333": {
+"hash": "327e9849287d0c2ff7236398325cbb89db69bf3b",
+"chapters": 1,
+"chars": 3288
+},
+"1743": {
+"hash": "ef8dfeab9445de3297e5422e981cf86df0e2e5b0",
+"chapters": 10,
+"chars": 11923
+},
+"1754": {
+"hash": "aa2fa5d3769ed5d4abdb7f048b517f37fcbdb160",
+"chapters": 13,
+"chars": 25589
+},
+"1768": {
+"hash": "deb9c7a16f20b9d18f8c42e95df257d4f07afe8a",
+"chapters": 6,
+"chars": 9963
+},
+"1775": {
+"hash": "66259e29f9011c0ba194f689fc624138f347bd7a",
+"chapters": 1,
+"chars": 1404
+},
+"1776": {
+"hash": "3e174ab5dff00462aaf62c1410e9300b3cca5920",
+"chapters": 1,
+"chars": 1346
+},
+"1777": {
+"hash": "2d39e0cac965af0eb359ee7072d4066b3f3ae619",
+"chapters": 1,
+"chars": 1303
+},
+"1778": {
+"hash": "8515a5ebbf53dfc34c15c4fc41eadd560187ed2a",
+"chapters": 4,
+"chars": 3971
+},
+"1783": {
+"hash": "d1e3536c1837a05c67d9c2ad45dfece6fb6c954c",
+"chapters": 1,
+"chars": 1036
+},
+"1784": {
+"hash": "1409772a596f8426d712b44454df3bce0e5c151f",
+"chapters": 1,
+"chars": 3628
+},
+"1785": {
+"hash": "2ca6c3cc46abf1b72e8929ce0694dfd41c4e591d",
+"chapters": 6,
+"chars": 6655
+},
+"1792": {
+"hash": "9a881b891c2f0f8fd456bf956625a522645786c8",
+"chapters": 1,
+"chars": 2986
+},
+"1793": {
+"hash": "0ecdc46832eea4e20637702eed10027ab0c2a7fe",
+"chapters": 1,
+"chars": 3136
+},
+"1794": {
+"hash": "4d28abca1fa9180346ccb6d8d50ae7dd12007ba9",
+"chapters": 1,
+"chars": 1157
+},
+"1795": {
+"hash": "dca4304c64d528c578bd603e6b37503deb913ace",
+"chapters": 1,
+"chars": 1383
+},
+"1796": {
+"hash": "9e652582ae2119687fa2e316495e7b977587066c",
+"chapters": 6,
+"chars": 4817
+},
+"1803": {
+"hash": "a40919e13e9f6b26ec1cdcb068076e1e7cbc7adf",
+"chapters": 1,
+"chars": 3498
+},
+"1804": {
+"hash": "44f3a056c83450f1f043fe4d1480f9a3e57af280",
+"chapters": 1,
+"chars": 4060
+},
+"2164": {
+"hash": "e37d706b252f5717099333d0281f291ac44c2854",
+"chapters": 1,
+"chars": 1802
+},
+"2194": {
+"hash": "90cf3943b52328f1a4989394adb7eea260806e00",
+"chapters": 1,
+"chars": 1442
+},
+"2213": {
+"hash": "57ecaa90dae8884be834fac82d5ffa2526675621",
+"chapters": 1,
+"chars": 2006
+},
+"2052": {
+"hash": "06bd230790dc48b3eb02f2bf1fe185ac8dc6726a",
+"chapters": 27,
+"chars": 34725
+},
+"2084": {
+"hash": "912f8307144ddc3de2ad7aea5986b1cf0f92b385",
+"chapters": 23,
+"chars": 62741
+},
+"2108": {
+"hash": "39f0ffcb1351972ab372b1d4c7f7174a07c8df96",
+"chapters": 1,
+"chars": 4059
+},
+"2109": {
+"hash": "2df05c8ad09337d87ba41f3b71a812ffb3a11df9",
+"chapters": 1,
+"chars": 889
+},
+"2110": {
+"hash": "a3704d8de43d9a0da2aa8447285c40cfa57c1642",
+"chapters": 6,
+"chars": 13170
+},
+"2117": {
+"hash": "1d047d724a284c5b310e3a0275d316b54526878a",
+"chapters": 1,
+"chars": 2140
+},
+"2118": {
+"hash": "645bb65ec07363c64ee48c0a3bb5682e2e6ae5c8",
+"chapters": 6,
+"chars": 3077
+},
+"2125": {
+"hash": "7ba7ccbb641fcdf13e4af6e4d145969b330399b6",
+"chapters": 1,
+"chars": 1935
+},
+"2126": {
+"hash": "6129fccbfe027c75375969b022c5918cec4022fb",
+"chapters": 6,
+"chars": 4438
+},
+"2133": {
+"hash": "1d7a6fe982e1c3e2956eeabf467ac44a48dc5f01",
+"chapters": 1,
+"chars": 2895
+},
+"2134": {
+"hash": "49c03879ae8c12a0f7f319ee95954ca40738236c",
+"chapters": 1,
+"chars": 3140
+},
+"2135": {
+"hash": "c457e6bc5bf8cff582c29f4dab779cc1db96c2a5",
+"chapters": 1,
+"chars": 4297
+},
+"2136": {
+"hash": "b3cbc912f6f5dc33f6737b107680098052a34f0e",
+"chapters": 1,
+"chars": 4190
+},
+"2193": {
+"hash": "d834341edc6cd9aa7a3af2f8f2c060bbc2592656",
+"chapters": 1,
+"chars": 4235
+},
+"2137": {
+"hash": "d59a3ffab6d033932fd9ca671b5c250aafffb02a",
+"chapters": 1,
+"chars": 5780
+},
+"2138": {
+"hash": "ee6513d53e25cae99de5b3bd68b343cbc8b71ec8",
+"chapters": 1,
+"chars": 1982
+},
+"2139": {
+"hash": "33bfa6588986fa48fa3c65c4a5f8521356b125e6",
+"chapters": 14,
+"chars": 8345
+},
+"2154": {
+"hash": "8b8bb69f773364750e441039dfce24bb7107fcf3",
+"chapters": 8,
+"chars": 9143
+},
+"2216": {
+"hash": "2b9567dd335617c166b589bbabffc9ae1ebe831f",
+"chapters": 1,
+"chars": 2885
+},
+"1437": {
+"hash": "e76cf9e7f785af8621a02acbe468349dfd2987c5",
+"chapters": 24,
+"chars": 39228
+},
+"1495": {
+"hash": "8d3f2d01924d0d93b53213be79d97a99aeac16b8",
+"chapters": 27,
+"chars": 92531
+},
+"1589": {
+"hash": "8f059513e2c3a00520ba57a7bc50e35e5bc2ccb0",
+"chapters": 1,
+"chars": 1726
+},
+"1591": {
+"hash": "d92044bcd40b3c9a3bef68f91f4375bdb16a874b",
+"chapters": 1,
+"chars": 972
+},
+"1467": {
+"hash": "a45587b83355f78244620e6e4e633092f34470ed",
+"chapters": 1,
+"chars": 3153
+},
+"1468": {
+"hash": "03ccb26486f26e6a5a7b35d607e32afd91a00b6c",
+"chapters": 1,
+"chars": 1687
+},
+"1479": {
+"hash": "b98068e19da58c5f12150dd426e26f10d5319937",
+"chapters": 1,
+"chars": 278
+},
+"1480": {
+"hash": "cb96479eed5c84a4679685cffe1f617847b68ed3",
+"chapters": 1,
+"chars": 440
+},
+"2345": {
+"hash": "f5b18ddda1d9d53b3a13d1993b3bd74be244b357",
+"chapters": 1,
+"chars": 291
+},
+"1481": {
+"hash": "072e196b0d72d858c5edc70ea8f5e55d9c0f1e59",
+"chapters": 1,
+"chars": 321
+},
+"1592": {
+"hash": "39e479bbbc96bb3f5e933222b44c7ee47ee87358",
+"chapters": 1,
+"chars": 1154
+},
+"1593": {
+"hash": "6d9b9b57b8a422b51cd13d7baa01a8ed75bbcc97",
+"chapters": 1,
+"chars": 990
+},
+"2326": {
+"hash": "fd84f94348d93ff18283abbde8a1c2cab776c7e2",
+"chapters": 1,
+"chars": 2334
+},
+"1595": {
+"hash": "77a47a309fa8e0a14df2409250792e7fcd6822da",
+"chapters": 1,
+"chars": 3545
+},
+"1614": {
+"hash": "24c1195800cac8249a223ce04421626981856c91",
+"chapters": 5,
+"chars": 2171
+},
+"1597": {
+"hash": "ad672755d13cbf1c603e87220822589cf4fd3219",
+"chapters": 1,
+"chars": 3244
+},
+"1596": {
+"hash": "ce504aafbacc6552121b93bf964d7fe8e034d4e9",
+"chapters": 1,
+"chars": 1400
+},
+"1482": {
+"hash": "58251f14a61d444c8f5fb7633f2eccee2cf48f3a",
+"chapters": 11,
+"chars": 6753
+},
+"1598": {
+"hash": "e970e8864a482451ab553a5d05891c08bf0063be",
+"chapters": 1,
+"chars": 2629
+},
+"1607": {
+"hash": "5ed4b377f85c043fafe73918af7d58154344bf3b",
+"chapters": 6,
+"chars": 13069
+},
+"2246": {
+"hash": "4dd0192bed7d0a631bc3d1df75d60473bfc3c680",
+"chapters": 1,
+"chars": 6126
+},
+"1523": {
+"hash": "78de3ea03e4644f01dd9652d95d94e234dd19d7a",
+"chapters": 17,
+"chars": 106182
+},
+"1556": {
+"hash": "f2d875338d8d1405d422ea14cb0f81f6a4a384ef",
+"chapters": 13,
+"chars": 11782
+},
+"1570": {
+"hash": "351c331475116dc6058fc1f913553cb46495a77a",
+"chapters": 1,
+"chars": 7721
+},
+"1577": {
+"hash": "283e87d8f07a938b0be211e8c0949e686508f6ea",
+"chapters": 5,
+"chars": 5001
+},
+"1583": {
+"hash": "d4db1a2b68ce08944d6a147cc19a4d09e4ea8c09",
+"chapters": 5,
+"chars": 4954
+},
+"1590": {
+"hash": "bb0dc04335e6f19ab2002735689b56dc7178c6b3",
+"chapters": 1,
+"chars": 3899
+},
+"2297": {
+"hash": "60274d1151cd1d5943811a7bcc042a04b1639214",
+"chapters": 1,
+"chars": 5997
+},
+"2299": {
+"hash": "0fa9d454bde3f0b5dc6fa540f5cef828e8c944b1",
+"chapters": 1,
+"chars": 4061
+},
+"1606": {
+"hash": "5448899f5a956e326e804fad431b4575903b8ff1",
+"chapters": 1,
+"chars": 1605
+},
+"1620": {
+"hash": "e2293bc84fc2810f54a30fb623b91a0dd9cea9b8",
+"chapters": 1,
+"chars": 5617
+},
+"2324": {
+"hash": "5971ad6b7f3b1b21308439c69e61b3dfb8218dc1",
+"chapters": 1,
+"chars": 1175
+},
+"2196": {
+"hash": "d410e3f762b16b67535d06e6b68821c10e8b26c8",
+"chapters": 6,
+"chars": 6663
+},
+"1541": {
+"hash": "0bf43723de763bd706677ad343381b83c18f8869",
+"chapters": 14,
+"chars": 53066
+},
+"1469": {
+"hash": "ea0544c7942b4fafd9775016dbf815e8636be78e",
+"chapters": 9,
+"chars": 7354
+},
+"1571": {
+"hash": "97ebb03a0c2dc10ea6d1ac50ce768e6d9651bc53",
+"chapters": 5,
+"chars": 4674
+},
+"2195": {
+"hash": "367d178684f5d17fc4382a58b22d123e3f9f6a23",
+"chapters": 5,
+"chars": 4070
+},
+"1927": {
+"hash": "bcb5c0c055d503f657d3cf3af16c20123cc89dc5",
+"chapters": 15,
+"chars": 32510
+},
+"1941": {
+"hash": "2ba4c15882730a106cb7d56875994d69b7a2fa9f",
+"chapters": 1,
+"chars": 597
+},
+"1942": {
+"hash": "1333b36cdb873a268b81d4de1b0709a454fd8793",
+"chapters": 1,
+"chars": 4154
+},
+"1943": {
+"hash": "3d9a91f228a2041471203cd9d8153fd217da1c28",
+"chapters": 1,
+"chars": 4977
+},
+"1944": {
+"hash": "5be4a89108235453bded3dd0ed2db6c016596fe8",
+"chapters": 1,
+"chars": 3821
+},
+"1945": {
+"hash": "2d9cbfdf5f02645eb52f354ab0857c569ea26caf",
+"chapters": 1,
+"chars": 1159
+},
+"1946": {
+"hash": "efc1575c1a4561fa17794edd8a58e12de61d24c4",
+"chapters": 6,
+"chars": 10377
+},
+"1953": {
+"hash": "1b58a5d2f195117b76afbb0a8590cb0adedf1a8f",
+"chapters": 6,
+"chars": 3978
+},
+"1960": {
+"hash": "625c4e84b52077f5ba3ae005e0a4b9e7dee63ded",
+"chapters": 6,
+"chars": 4303
+},
+"1967": {
+"hash": "dd05f16ba663562a0eb4ce14f397cdbb668b69ff",
+"chapters": 12,
+"chars": 15372
+},
+"1980": {
+"hash": "e83c8c7feb6a4399abec5ec15e8c7a1b49294998",
+"chapters": 1,
+"chars": 1369
+},
+"1981": {
+"hash": "1d204bcc1ba68302e5264626234e47d931793abd",
+"chapters": 1,
+"chars": 8029
+},
+"1982": {
+"hash": "be7eaa0174e50bb265566b32e0a2e85ca04e039b",
+"chapters": 1,
+"chars": 3063
+},
+"1983": {
+"hash": "a3f0d63388062981d880d56f2a7548dfdf565a51",
+"chapters": 7,
+"chars": 9319
+},
+"1991": {
+"hash": "e46d9321f8e9d69dfffc3eb6fe7712c7aeca18e4",
+"chapters": 14,
+"chars": 35211
+},
+"2006": {
+"hash": "3f8ec30036f197e7ba51edd0920197bc722a27b4",
+"chapters": 15,
+"chars": 21949
+},
+"2022": {
+"hash": "503e5e20e3f8b90aad85a89a4a08073893eca39e",
+"chapters": 8,
+"chars": 22181
+},
+"2031": {
+"hash": "1724dde0ed59a15b9f886b33b8d23357bfced298",
+"chapters": 1,
+"chars": 891
+},
+"2032": {
+"hash": "7cf1d427039fe1faa70b6b1ea09300412cc94468",
+"chapters": 1,
+"chars": 2750
+},
+"2033": {
+"hash": "a9da67a5a7c96858fbbfb90b08b83b17f59127fa",
+"chapters": 1,
+"chars": 3423
+},
+"2034": {
+"hash": "c43038c223500dfef0facd400a4667bc78430c2e",
+"chapters": 1,
+"chars": 2881
+},
+"2035": {
+"hash": "d3fd915efda858568a49a9b414b5ff16c4b6aad0",
+"chapters": 16,
+"chars": 39716
+}
+}
+}

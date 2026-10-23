@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>法律法规汇编</title>
+<meta name="description" content="法律法规汇编目录：按学科分类收录法律法规，支持检索与快速定位。" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%238c1c13'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E6%B3%95%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#nav">跳到目录</a>
+
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="打开目录" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="brand" href="#/" aria-label="法律法规汇编 首页">
+      <span class="brand-mark" aria-hidden="true">法</span>
+      <span class="brand-text">
+        <strong>法律法规汇编</strong>
+        <small>LAWS &amp; REGULATIONS</small>
+      </span>
+    </a>
+
+    <div class="search" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+      </svg>
+      <input id="searchInput" type="search" placeholder="搜索法律法规名称，按 / 聚焦" autocomplete="off" aria-label="搜索法律法规名称" />
+      <button class="clear-btn" id="clearBtn" type="button" aria-label="清空搜索" hidden>&times;</button>
+    </div>
+
+    <div class="topbar-stat" id="topStat" aria-live="polite"></div>
+
+    <button class="sync-btn" id="updateBtn" type="button" title="从源站同步最新目录">
+      <svg class="sync-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 11a8 8 0 1 0-2.3 6.3"></path>
+        <path d="M20 5v6h-6"></path>
+      </svg>
+      <span class="sync-label">同步更新</span>
+      <span class="sync-dot" id="syncDot" hidden aria-label="源站有更新"></span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <div class="scrim" id="scrim" hidden></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <span>目录</span>
+        <button class="text-btn" id="collapseAll" type="button">全部收起</button>
+      </div>
+      <nav class="nav" id="nav" aria-label="法律法规目录"></nav>
+      <div class="sidebar-foot" id="sidebarFoot"></div>
+    </aside>
+
+    <main class="content" id="content" tabindex="-1">
+      <!-- 由 app.js 渲染 -->
+    </main>
+  </div>
+
+  <button class="toc-fab" id="tocBtn" type="button" aria-controls="tocDrawer" aria-expanded="false" title="查看目录">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 6h16M4 12h16M4 18h10"></path>
+    </svg>
+    <span>目录</span>
+  </button>
+
+  <div class="toc-scrim" id="tocScrim" hidden></div>
+
+  <aside class="toc-drawer" id="tocDrawer" hidden aria-label="本篇目录">
+    <header class="toc-drawer-head">
+      <div class="toc-drawer-title">
+        <strong>目录</strong>
+        <span class="toc-meta" id="tocMeta"></span>
+      </div>
+      <button class="toc-close" id="tocClose" type="button" aria-label="关闭目录">&times;</button>
+    </header>
+    <div class="toc-drawer-body" id="tocBody"></div>
+  </aside>
+
+  <button class="top-btn" id="topBtn" type="button" title="回到顶部" aria-label="回到顶部" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5"></path>
+      <path d="M6 11l6-6 6 6"></path>
+    </svg>
+  </button>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="data/catalog.js"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
