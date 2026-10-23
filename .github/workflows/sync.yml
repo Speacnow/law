@@ -31,6 +31,9 @@ jobs:
       - name: 同步目录与正文
         run: python tools/sync.py --once
 
+      - name: 心跳（每月一次，避免 60 天无提交被暂停定时任务）
+        run: python tools/heartbeat.py
+
       - name: 有变化才提交
         run: |
           git config user.name  "law-sync-bot"

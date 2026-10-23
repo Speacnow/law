@@ -66,11 +66,13 @@ law/
 │  ├─ sync-state.json                  上次同步的版本号
 │  ├─ last-update.json                 上次同步结果
 │  ├─ changelog/YYYY-MM-DD.json        变更记录
+│  ├─ heartbeat.json                   心跳时间戳（防 60 天无提交被暂停）
 │  └─ source-listV2.json               目录原始树（含编 / 分编）
 ├─ tools/
 │  ├─ sync.py                  核心同步（目录 + 正文）
 │  ├─ fetch_source.py          只抓原始目录树
-│  └─ build_catalog.py         构建 / 比对 / 写盘
+│  ├─ build_catalog.py         构建 / 比对 / 写盘
+│  └─ heartbeat.py             每月写一次时间戳，保持仓库活跃
 ├─ cloudflare/
 │  ├─ worker.js                按钮代理 → GitHub Actions
 │  └─ wrangler.toml
@@ -113,12 +115,15 @@ python tools/sync.py --once            :: 同上（CI / 计划任务）
 python tools/sync.py --check           :: 只比较版本号
 python tools/sync.py --once --force    :: 忽略版本号强制重抓
 python tools/sync.py --once --dry-run  :: 抓取但不写盘
+
+python tools/heartbeat.py --force      :: 手动更新心跳（防定时任务被暂停）
 ```
 
 ## 注意
 
 - 正文为源站公开条文文本，仅作学习检索；官方核对请自行对照 [国家法律法规数据库](https://flk.npc.gov.cn/)，流程里不做自动校验。
 - 部署细节、故障排查、Worker 配置见 [DEPLOY.md](DEPLOY.md)。
+
 
 
 

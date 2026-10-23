@@ -171,6 +171,12 @@ git push -u origin main
 
 `on.schedule` 已经写好：**每天 06:00（北京时间）**。不用再配置。
 
+工作流里还带了一个**心跳**步骤（`tools/heartbeat.py`）：如果距上次心跳超过 25 天，就写一次 `data/heartbeat.json` 并提交。这样即使法条两个月没变化，仓库也不会「60 天无提交」，定时任务不会被 GitHub 暂停。本地想手动更新心跳：
+
+```bat
+python tools/heartbeat.py --force
+```
+
 验证方法：Actions 页面能看到定时运行记录；页脚时间会跟着变。
 
 ### 2.7 让页面上的按钮也能用（可选）
@@ -344,7 +350,7 @@ GET  /api/office/laws/lawVersion             版本号
 | 点了按钮但数据没变 | 版本号没变（正常） | 页脚看版本；确实有新法再看 `/api/status` |
 | GitHub Actions 提交 403 | 没开写权限 | 第 2.3 步 |
 | Pages 打开 404 | 分支/目录选错 | `main` + `/ (root)` |
-| Actions 定时不跑了 | 仓库 60 天无提交被暂停 | Actions 页面点 `Enable workflow` |
+| Actions 定时不跑了 | 仓库 60 天无提交被暂停 | 已内置**心跳**（`tools/heartbeat.py`，每月自动提交一次时间戳）；万一还是停了，Actions 页面点 `Enable workflow` |
 | 定时比预期晚 | GitHub cron 有 5–15 分钟延迟 | 正常，周更无所谓 |
 | 正文 404 / 「该法正文尚未同步」 | 新增的法还没同步 | 点同步，或等下一次定时 |
 | Windows 控制台中文乱码 | 终端编码 | 用 `start.bat`（已 `chcp 65001`） |
