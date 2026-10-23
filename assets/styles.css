@@ -1014,10 +1014,7 @@ mark.hl {
 .law-chapter {
   scroll-margin-top: 86px;
   padding: 6px 0 2px;
-  transition: background 0.5s ease;
-  border-radius: 8px;
 }
-.law-chapter.is-target { background: #fdf6e9; box-shadow: 0 0 0 10px #fdf6e9; }
 
 .law-h { font-family: var(--sans); text-align: center; font-weight: 600; line-height: 1.6; }
 .law-h.h3 {

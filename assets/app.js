@@ -440,8 +440,6 @@
     if (!target) return;
     var top = target.getBoundingClientRect().top + window.pageYOffset - 76;
     window.scrollTo({ top: Math.max(0, top), behavior: smooth ? "smooth" : "auto" });
-    target.classList.add("is-target");
-    setTimeout(function () { target.classList.remove("is-target"); }, 1400);
   }
 
   function renderLaw(lawId, chapterId) {
