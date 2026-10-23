@@ -1,0 +1,14 @@
+# 统一换行符，避免 Windows 批处理在别的机器上 checkout 成 LF 后无法运行
+* text=auto
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+*.sh   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.py   text eol=lf
+*.js   text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
