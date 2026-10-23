@@ -40,8 +40,14 @@ jobs:
           git config user.email "law-sync-bot@users.noreply.github.com"
           git add data/
           if git diff --cached --quiet; then
-            echo "本周无变化，跳过提交"
-          else
-            git commit -m "chore: 同步法律法规 $(date -u +%F)"
-            git push
+            echo "本次无变化，跳过提交"
+            exit 0
           fi
+          # 只有心跳文件变化时，提交信息写明是心跳
+          if git diff --cached --name-only | grep -qv '^data/heartbeat\.json$'; then
+            msg="chore: 同步法律法规 $(date -u +%F)"
+          else
+            msg="chore: 心跳 $(date -u +%F)"
+          fi
+          git commit -m "$msg"
+          git push
