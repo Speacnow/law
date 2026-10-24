@@ -1039,7 +1039,19 @@
 
   function scrollActiveIntoView() {
     var active = el.nav.querySelector(".law-item.is-active");
-    if (active) active.scrollIntoView({ block: "center" });
+    if (!active) return;
+
+    // 已经完整可见就不动，保持用户点击时的位置
+    var box = el.nav.getBoundingClientRect();
+    var item = active.getBoundingClientRect();
+    if (item.top >= box.top && item.bottom <= box.bottom) return;
+
+    // 只有当前项跑出可见区时才补一点，而且只滚侧栏，不带动整页
+    if (item.top < box.top) {
+      el.nav.scrollTop += item.top - box.top - 8;
+    } else {
+      el.nav.scrollTop += item.bottom - box.bottom + 8;
+    }
   }
 
   function selectLaw(lawId) {
