@@ -468,7 +468,13 @@ body.has-findbar .content { padding-top: 88px; }
   border-top: 1px solid var(--line);
   font-size: 11px;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.55;
+}
+.sidebar-foot .foot-line {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ---------- 学科分组 ---------- */

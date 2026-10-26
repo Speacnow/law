@@ -105,12 +105,13 @@
   function renderFooter() {
     var meta = state.catalog && state.catalog.meta;
     if (!meta) return;
-    el.sidebarFoot.textContent =
-      "数据更新于 " + formatTime(meta.generatedAt) +
-      " · " + meta.subjectCount + " 个学科 · " + meta.lawCount + " 部";
-    if (meta.upstreamVersion) {
-      el.sidebarFoot.title = "源站目录版本 " + meta.upstreamVersion;
-    }
+    el.sidebarFoot.innerHTML =
+      '<span class="foot-line">数据版本 ' + escapeHtml(meta.upstreamVersion || "—") + "</span>" +
+      '<span class="foot-line">更新于 ' + formatTime(meta.generatedAt) +
+      " · " + meta.subjectCount + " 学科 / " + meta.lawCount + " 部</span>";
+    el.sidebarFoot.title =
+      "「更新于」是数据内容的版本时间，不是检查时间。\n" +
+      "源站每天 06:00 自动检查一次，没有新版本就不改动数据。";
   }
 
   function toast(opts) {
